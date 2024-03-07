@@ -2,24 +2,21 @@ package pages;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
+
+import drivers.BrowserDriver;
+import drivers.DriverFactory;
 
 class BaseTestPage {
 
-	protected WebDriver webdriver;
+	static final WebDriver webdriver = DriverFactory.getDriver(BrowserDriver.DIVER_TYPE);
 
 	@BeforeAll
-	void setup() {
-	}
-
-	@BeforeEach
-	void init() {
-
+	static void setup() {
 	}
 
 	@AfterAll
-	void tearDown() {
-		webdriver.close();
+	static void tearDown() {
+		webdriver.quit();
 	}
 }

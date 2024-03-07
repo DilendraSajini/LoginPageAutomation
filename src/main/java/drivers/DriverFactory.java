@@ -1,7 +1,6 @@
 package drivers;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverFactory {
 
@@ -12,12 +11,8 @@ public class DriverFactory {
 		Drivers driver = Drivers.valueOf(driverType);
 		switch (driver) {
 		case CHROME:
-			return getCromeDriver();
+			return new ChromeBrowserDriver().getDriver();
 		}
-		return getCromeDriver();
-	}
-
-	private static WebDriver getCromeDriver() {
-		return new ChromeDriver();
+		return new ChromeBrowserDriver().getDriver();
 	}
 }
