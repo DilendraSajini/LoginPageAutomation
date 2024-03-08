@@ -49,9 +49,9 @@ class LoginPageTest extends BaseTestPage {
 	 * 
 	 * - A standard email address with a valid format: user@example.com
 	 * 
-	 * -An email address with a subdomain: user@mail.example.com
+	 * - An email address with a subdomain: user@mail.example.com
 	 * 
-	 * -An email address with a hyphen in the domain: user-name@example.com
+	 * - An email address with a hyphen in the domain: user-name@example.com
 	 * 
 	 * - An email address with a plus sign in the local part: user+label@example.com
 	 */
@@ -107,13 +107,13 @@ class LoginPageTest extends BaseTestPage {
 	@DisplayName("Valid Username Password Login")
 	void testValidLogin() {
 		login.clear();
-		String username = "user@example.com";
-		String password = "P@ssw0rd";
+		String username = "dilendra.sajini@gmail.com";
+		String password = "123Saj1!";
 		login.setUsername(username);
 		login.setPassword(password);
 		assertTrue(login.getSignin().isEnabled());
 		login.clickSignin();
-		assertEquals("ATRAS Running!", webdriver.getTitle());
+		assertEquals("Learning on Simplilearn", webdriver.getTitle());
 	}
 
 	@AfterAll

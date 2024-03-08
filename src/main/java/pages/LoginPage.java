@@ -19,7 +19,7 @@ public class LoginPage {
 
 	private WebDriverWait wait;
 
-	@FindBy(how = How.ID, using = "email")
+	@FindBy(how = How.XPATH, using = "//*[@id=\"login-form\"]/div[2]/input")
 	@CacheLookup
 	private WebElement username;
 
@@ -27,7 +27,7 @@ public class LoginPage {
 	@CacheLookup
 	private WebElement password;
 
-	@FindBy(how = How.XPATH, using = "//*[@id=\"main-content\"]/div[2]/app-login/form/button")
+	@FindBy(how = How.XPATH, using = "//*[@id=\"login-form\"]/div[5]/input")
 	@CacheLookup
 	private WebElement signin;
 
