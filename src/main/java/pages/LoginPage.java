@@ -19,6 +19,10 @@ public class LoginPage {
 
 	private WebDriverWait wait;
 
+	@FindBy(how = How.CSS, using = "div.content-heading")
+	@CacheLookup
+	private WebElement contentheding;
+
 	@FindBy(how = How.XPATH, using = "//*[@id=\"login-form\"]/div[2]/input")
 	@CacheLookup
 	private WebElement username;
@@ -31,7 +35,6 @@ public class LoginPage {
 	@CacheLookup
 	private WebElement signin;
 
-	// need to change
 	@FindBy(how= How.LINK_TEXT, using="Forgot password?")
 	@CacheLookup
 	private WebElement forgotPassword;
@@ -51,6 +54,10 @@ public class LoginPage {
 
 	public WebElement getForgotPassword() {
 		return forgotPassword;
+	}
+
+	public WebElement getContentheding() {
+		return contentheding;
 	}
 
 	public LoginPage(WebDriver driver) {

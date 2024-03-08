@@ -33,6 +33,13 @@ class LoginPageTest extends BaseTestPage {
 
 	}
 
+	@Test
+	@Order(1)
+	void verifyLogingPageContent() {
+		assertEquals("Login | Learning on Simplilearn", webdriver.getTitle());
+		assertEquals("Welcome back!", login.getContentheding().getText());
+	}
+
 	/*
 	 * Valid passwords:
 	 * 
@@ -57,7 +64,7 @@ class LoginPageTest extends BaseTestPage {
 	 */
 
 	@ParameterizedTest
-	@Order(1)
+	@Order(2)
 	@DisplayName("Valid Username Password Login enable Sign In Button")
 	@CsvSource({ "'user@example.com', 'P@ssw0rd' ", "'user@mail.example.com', 'P@ssw0rd'",
 			"'user-name@example.com', 'P@ssw0rd'", "'user+label@example.com', 'P@ssw0rd'" })
@@ -70,20 +77,20 @@ class LoginPageTest extends BaseTestPage {
 
 	@DisplayName("Invalid Username Login disable Sign In Button")
 	@ParameterizedTest
-	@Order(2)
+	@Order(3)
 	@ValueSource(strings = { " ", "userexample.com", "user@example", "user@example!com", "user@example .com",
 			"user@example..com" })
 	void testInvalidUsername(String username) {
+		String password = "P@ssw0rd";
 		login.clear();
 		login.setUsername(username);
-		String password = "P@ssw0rd";
 		login.setPassword(password);
 		assertFalse(login.getSignin().isEnabled());
 	}
 
 	@DisplayName("Invalid Password Login disable Sign In Button")
 	@ParameterizedTest
-	@Order(3)
+	@Order(4)
 	@ValueSource(strings = { "", "abc123", "password", "123456", "!@#$%^&*", "pa ssword" })
 	void testInvalidPassword(String password) {
 		login.clear();
@@ -96,14 +103,13 @@ class LoginPageTest extends BaseTestPage {
 	@Test
 	@DisplayName("Reset Password")
 	@Disabled
-	@Order(4)
+	@Order(5)
 	void testForgotPasswordLink() {
 		// login.clickForgotPassword();
-		// login.clickSignin();
 	}
 
 	@Test
-	@Order(5)
+	@Order(6)
 	@DisplayName("Valid Username Password Login")
 	void testValidLogin() {
 		login.clear();
@@ -117,7 +123,7 @@ class LoginPageTest extends BaseTestPage {
 	}
 
 	@AfterAll
-	static void tearDown() {
+	static void tearDownAll() {
 
 	}
 }
