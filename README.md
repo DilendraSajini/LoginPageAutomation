@@ -62,4 +62,4 @@ Future enhancements may include:
 - Implementing improve meaningful messaging, logging, exception handling and richer reporting with attached screenshots.
 - Discussing usability enhancements with experts to evolve the framework into an enterprise-level solution, potentially incorporating features like localization support.
 
-By continuously iterating and improving the framework, we aim to maintain its solid structure and ensure long-term maintainability and effectiveness.
+By continuously iterating and improving the framework, I aim to maintain its solid structure and ensure long-term maintainability and effectiveness.
